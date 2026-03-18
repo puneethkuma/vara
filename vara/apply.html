@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply for Membership — Vara Siddhi Credit Co-Operative Society Ltd.</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Apply page is always visible */
+  #land{display:none!important;}
+  #form-pg{display:block!important;}
+  #success-pg{display:none;}
+  #success-pg.show{display:flex!important;}
+</style>
+</head>
+<body>
+
+<!-- ====================================================
+     FORM PAGE
+==================================================== -->
+<div id="form-pg">
+<div class="form-nav">
+  <div class="nav-brand" onclick="window.location.href='index.html'" style="cursor:pointer;">
+    <div class="nav-logo"><img src="img/vara logo.PNG" alt="logo Image"></div>
+    <div class="nav-title">
+      <h1>ವರ ಸಿದ್ಧಿ ಕ್ರೆಡಿಟ್</h1>
+      <p>ಸಹಕಾರಿ ಸಂಘ ಲಿಮಿಟೆಡ್</p>
+    </div>
+  </div>
+  <div class="form-nav-txt">
+    <h2>Membership Application Form</h2>
+    <p>Vara Siddhi Credit Co-Operative Society Ltd. · Bangalore</p>
+  </div>
+  <button class="btn-nav" style="font-size:12px;padding:8px 18px;" onclick="window.location.href='index.html'">← Home</button>
+</div>
+<div class="prog-wrap"><div class="prog-bar" id="pbar"></div></div>
+<div class="prog-label" id="progLabel">0% complete</div>
+
+<div class="form-body">
+
+  <!-- Personal -->
+  <div class="form-section">
+    <div class="form-section-header"><span class="sec-ico">👤</span><div><h3>Personal Information</h3><p>Fields 1 – 6</p></div></div>
+    <div class="form-fields">
+      <div class="field">
+        <label>Full Name <span class="req">*</span><span class="kan">ಹೆಸರು</span></label>
+        <input class="fi" type="text" placeholder="Enter your full name" oninput="upProg()">
+      </div>
+      <div class="field-row">
+        <div class="field" style="margin-bottom:0;">
+          <label>Father's Name <span class="req">*</span><span class="kan">ತಂದೆಯ ಹೆಸರು</span></label>
+          <input class="fi" type="text" placeholder="Father's full name" oninput="upProg()">
+        </div>
+        <div class="field" style="margin-bottom:0;">
+          <label>Husband's Name <span style="font-size:11px;font-weight:400;color:var(--muted);">(If Married)</span><span class="kan">ಗಂಡನ ಹೆಸರು</span></label>
+          <input class="fi" type="text" placeholder="If married, husband's name" oninput="upProg()">
+        </div>
+      </div>
+      <div class="field-row" style="margin-top:16px;">
+        <div class="field" style="margin-bottom:0;">
+          <label>Age <span class="req">*</span><span class="kan">ವಯಸ್ಸು</span></label>
+          <input class="fi" type="number" placeholder="Age in years" min="18" max="80" oninput="upProg()">
+        </div>
+        <div class="field" style="margin-bottom:0;">
+          <label>Date of Birth <span class="req">*</span><span class="kan">ಹುಟ್ಟಿದ ದಿನಾಂಕ</span></label>
+          <input class="fi" type="date" oninput="upProg()">
+        </div>
+      </div>
+      <div class="field" style="margin-top:16px;">
+        <label>Religion <span class="req">*</span><span class="kan">ಧರ್ಮ</span></label>
+        <select class="fi" onchange="upProg()"><option value="">Select religion</option><option>Hindu</option><option>Muslim</option><option>Christian</option><option>Jain</option><option>Buddhist</option><option>Sikh</option><option>Other</option></select>
+      </div>
+      <div class="field">
+        <label>Category <span class="req">*</span><span class="kan">ಪರಿಶಿಷ್ಟ ಜಾತಿ / ವರ್ಗ / ಸಾಮಾನ್ಯ</span></label>
+        <select class="fi" onchange="upProg()"><option value="">Select SC / ST / General</option><option>General</option><option>SC – Scheduled Caste</option><option>ST – Scheduled Tribe</option><option>OBC – Other Backward Class</option></select>
+      </div>
+      <div class="field">
+        <label>Years Residing in Karnataka <span class="req">*</span><span class="kan">ಕರ್ನಾಟಕ ರಾಜ್ಯದಲ್ಲಿ ವಾಸ</span></label>
+        <input class="fi" type="number" placeholder="Number of years" min="1" oninput="upProg()">
+      </div>
+    </div>
+  </div>
+
+  <!-- Occupation -->
+  <div class="form-section">
+    <div class="form-section-header"><span class="sec-ico">💼</span><div><h3>Occupation Details</h3><p>Fields 7 – 8</p></div></div>
+    <div class="form-fields">
+      <div class="field">
+        <label>Occupation Type <span class="req">*</span><span class="kan">ಉದ್ಯೋಗ</span></label>
+        <div class="occ-pills">
+          <div class="pill" onclick="selOcc(this,'Government')"><span class="pill-ico">🏛️</span><span class="pill-en">Government</span><span class="pill-kan">ಸರ್ಕಾರಿ</span></div>
+          <div class="pill" onclick="selOcc(this,'Self Employed')"><span class="pill-ico">🏢</span><span class="pill-en">Self Employed</span><span class="pill-kan">ಸ್ವಯಂ</span></div>
+          <div class="pill" onclick="selOcc(this,'Private')"><span class="pill-ico">💼</span><span class="pill-en">Private</span><span class="pill-kan">ಖಾಸಗಿ</span></div>
+        </div>
+        <input type="hidden" id="occv">
+      </div>
+      <div class="field">
+        <label>Address of Employment<span class="kan">ಕಾರ್ಯ ನಿರ್ವಹಿಸುತ್ರಿರುವ ಸ್ಥಳದ ವಿಳಾಸ</span></label>
+        <textarea class="fi" placeholder="Office / company name and full address" oninput="upProg()"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nominee -->
+  <div class="form-section">
+    <div class="form-section-header"><span class="sec-ico">👨‍👩‍👧</span><div><h3>Nominee Details</h3><p>Field 9</p></div></div>
+    <div class="form-fields">
+      <div class="field">
+        <label>Nominee's Full Name <span class="req">*</span><span class="kan">ನಾಮ ನಿರ್ದೇಶಿತ ವ್ಯಕ್ತಿಯ ಹೆಸರು</span></label>
+        <input class="fi" type="text" placeholder="Nominee's full name" oninput="upProg()">
+      </div>
+      <div class="field-row">
+        <div class="field" style="margin-bottom:0;">
+          <label>Relationship <span class="req">*</span><span class="kan">ಸಂಬಂಧ</span></label>
+          <select class="fi" onchange="upProg()"><option value="">Select relationship</option><option>Husband</option><option>Wife</option><option>Son</option><option>Daughter</option><option>Father</option><option>Mother</option><option>Brother</option><option>Sister</option></select>
+        </div>
+        <div class="field" style="margin-bottom:0;">
+          <label>Nominee's Age <span class="req">*</span><span class="kan">ನಾಮ ನಿರ್ದೇಶಿತರ ವಯಸ್ಸು</span></label>
+          <input class="fi" type="number" placeholder="Age in years" min="1" oninput="upProg()">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="form-section">
+    <div class="form-section-header"><span class="sec-ico">🏠</span><div><h3>Contact & Address</h3><p>Field 10</p></div></div>
+    <div class="form-fields">
+      <div class="field">
+        <label>Resident Address <span class="req">*</span><span class="kan">ಮನೆಯ ವಿಳಾಸ</span></label>
+        <textarea class="fi" placeholder="Door No., Street, Area, City, PIN Code" oninput="upProg()"></textarea>
+      </div>
+      <div class="field-row">
+        <div class="field" style="margin-bottom:0;">
+          <label>Aadhaar Card Number <span class="req">*</span><span class="kan">ಆಧಾರ್ ಕಾರ್ಡ್ ನಂ.</span></label>
+          <input class="fi" type="text" placeholder="XXXX XXXX XXXX" maxlength="14" oninput="fmtA(this);upProg()">
+        </div>
+        <div class="field" style="margin-bottom:0;">
+          <label>Phone Number <span class="req">*</span><span class="kan">ದೂರವಾಣಿ</span></label>
+          <input class="fi" type="tel" placeholder="+91 XXXXX XXXXX" oninput="upProg()">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Financial -->
+  <div class="form-section">
+    <div class="form-section-header"><span class="sec-ico">💰</span><div><h3>Financial Details</h3><p>Fields 11 – 15</p></div></div>
+    <div class="form-fields">
+      <div class="income-row">
+        <div class="income-item">
+          <label>Monthly Income from Occupation <span class="req">*</span><span class="kan">ಮಾಸಿಕ ಆದಾಯ — ಉದ್ಯೋಗದಿಂದ</span></label>
+          <div class="fi-prefix-wrap"><span class="fi-prefix">₹</span><input class="fi fi-with-prefix" type="number" placeholder="0.00" oninput="upProg()"></div>
+        </div>
+        <div class="income-item">
+          <label>Income from Other Sources<span class="kan">ಇತರೆ ಮೂಲಗಳಿಂದ ಆದಾಯ</span></label>
+          <div class="fi-prefix-wrap"><span class="fi-prefix">₹</span><input class="fi fi-with-prefix" type="number" placeholder="0.00" oninput="upProg()"></div>
+        </div>
+      </div>
+      <div class="field" style="margin-top:16px;">
+        <label>Number of Shares Required <span class="req">*</span><span class="kan">ಬೇಕಾಗಿರುವ ಷೇರುಗಳ ಸಂಖ್ಯೆ</span></label>
+        <input class="fi" type="number" placeholder="Minimum 1 share = ₹500" min="1" oninput="upProg()">
+        <span class="hint">Each share is worth ₹500 · <span class="kan">ಪ್ರತಿ ಷೇರು ₹500 ಮೌಲ್ಯ</span></span>
+      </div>
+      <div class="field">
+        <label>Other Co-Operative Society Membership<span class="kan">ಬೇರೆ ಸಹಕಾರಿ ಸಂಘ ವಿವರ</span></label>
+        <textarea class="fi" placeholder="Name & details (write NA if not applicable)" oninput="upProg()"></textarea>
+      </div>
+      <div class="field">
+        <label>Property Details and Estimated Value<span class="kan">ಸ್ಥಿರಾಸ್ತಿ ವಿವರ ಮತ್ತು ಅಂದಾಜು ಬೆಲೆ</span></label>
+        <textarea class="fi" placeholder="Describe owned property and estimated value (write NA if none)" oninput="upProg()"></textarea>
+      </div>
+      <div class="field">
+        <label>Bank Name <span class="req">*</span><span class="kan">ಬ್ಯಾಂಕ್ ಹೆಸರು</span></label>
+        <input class="fi" type="text" placeholder="Bank name" oninput="upProg()">
+      </div>
+      <div class="field-row">
+        <div class="field" style="margin-bottom:0;">
+          <label>DD Number / Cash<span class="kan">DD ನಂ. / ನಗದು</span></label>
+          <input class="fi" type="text" placeholder="DD Number or Cash" oninput="upProg()">
+        </div>
+        <div class="field" style="margin-bottom:0;">
+          <label>Date<span class="kan">ದಿನಾಂಕ</span></label>
+          <input class="fi" type="date" oninput="upProg()">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Uploads -->
+  <div class="form-section">
+    <div class="form-section-header"><span class="sec-ico">📎</span><div><h3>Document Uploads</h3><p>Upload required documents</p></div></div>
+    <div class="form-fields">
+      <div class="upload-grid">
+        <div class="upload-item">
+          <label>Passport Size Photo <span class="req">*</span><span class="kan">ಭಾವಚಿತ್ರ</span></label>
+          <div class="drop-zone" id="dz1"><input type="file" accept="image/*" onchange="upFile(this,'dz1','fc1','fn1','fs1')"><div class="dz-ico">🖼️</div><div class="dz-text"><strong>Upload Photo</strong>Click or tap</div><div class="dz-fmt">JPG · PNG · Max 5MB</div></div>
+          <div class="file-chip" id="fc1"><span style="font-size:18px;flex-shrink:0;">🖼️</span><div style="flex:1;min-width:0;"><div class="fname" id="fn1"></div><div class="fsize" id="fs1"></div></div><button class="frm" onclick="rmFile('dz1','fc1')">×</button></div>
+        </div>
+        <div class="upload-item">
+          <label>Aadhaar Card <span class="req">*</span><span class="kan">ಆಧಾರ್ ಕಾರ್ಡ್</span></label>
+          <div class="drop-zone" id="dz2"><input type="file" accept="image/*,.pdf" onchange="upFile(this,'dz2','fc2','fn2','fs2')"><div class="dz-ico">🪪</div><div class="dz-text"><strong>Upload Aadhaar</strong>Front & back</div><div class="dz-fmt">JPG · PNG · PDF · Max 5MB</div></div>
+          <div class="file-chip" id="fc2"><span style="font-size:18px;flex-shrink:0;">🪪</span><div style="flex:1;min-width:0;"><div class="fname" id="fn2"></div><div class="fsize" id="fs2"></div></div><button class="frm" onclick="rmFile('dz2','fc2')">×</button></div>
+        </div>
+        <div class="upload-item">
+          <label>Address Proof<span class="kan">ವಿಳಾಸ ಪ್ರಮಾಣ</span></label>
+          <div class="drop-zone" id="dz3"><input type="file" accept="image/*,.pdf" onchange="upFile(this,'dz3','fc3','fn3','fs3')"><div class="dz-ico">📄</div><div class="dz-text"><strong>Address Proof</strong>Bill / bank statement</div><div class="dz-fmt">JPG · PNG · PDF · Max 5MB</div></div>
+          <div class="file-chip" id="fc3"><span style="font-size:18px;flex-shrink:0;">📄</span><div style="flex:1;min-width:0;"><div class="fname" id="fn3"></div><div class="fsize" id="fs3"></div></div><button class="frm" onclick="rmFile('dz3','fc3')">×</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signature -->
+  <div class="form-section">
+    <div class="form-section-header"><span class="sec-ico">✍️</span><div><h3>Digital Signature</h3><p>Sign using mouse or finger</p></div></div>
+    <div class="form-fields">
+      <div class="sig-wrap">
+        <div class="sig-toolbar"><span class="sig-hint">Draw your signature · <span class="kan">ಕೆಳಗೆ ಸಹಿ ಮಾಡಿ</span></span><button class="clr-btn" onclick="clrSig()">Clear</button></div>
+        <canvas id="sigC"></canvas>
+      </div>
+      <p class="sig-foot">Use mouse on desktop or finger on touchscreen · <span class="kan">ಟಚ್ ಸ್ಕ್ರೀನ್ ಅಥವಾ ಮೌಸ್ ಬಳಸಿ</span></p>
+      <div class="field-row" style="margin-top:14px;">
+        <div class="field" style="margin-bottom:0;"><label>Place<span class="kan">ಸ್ಥಳ</span></label><input class="fi" type="text" placeholder="e.g. Bangalore" oninput="upProg()"></div>
+        <div class="field" style="margin-bottom:0;"><label>Date<span class="kan">ದಿನಾಂಕ</span></label><input class="fi" type="date" oninput="upProg()"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Declaration -->
+  <div class="form-section">
+    <div class="form-section-header"><span class="sec-ico">📋</span><div><h3>Declaration & Consent</h3><p>Please read and confirm</p></div></div>
+    <div class="form-fields">
+      <div class="decl-box">
+        <span class="dk">ಮೇಲೆ ನಾನು ನೀಡಿರುವ ವಿವರಗಳೆಲ್ಲವೂ ನನ್ನ ಅತ್ಯುತ್ತಮ ಜ್ಞಾನ ಮತ್ತು ನಂಬಿಕೆಯಂತೆ ಸತ್ಯವಾಗಿರುತ್ತದೆ.</span>
+        I hereby declare that all information provided is <strong>true, correct and complete</strong> to the best of my knowledge. I understand that false information may result in cancellation of membership. I shall inform the society of any change in address in writing.
+      </div>
+      <div class="chk-row"><input type="checkbox" id="c1"><label for="c1">I agree to abide by the rules and bye-laws of Vara Siddhi Credit Co-Operative Society Ltd. and accept all terms of membership.<span class="kan">ಸಂಘದ ನಿಯಮ ಮತ್ತು ಒಳ ನಿಯಮಗಳಿಗೆ ಒಪ್ಪುತ್ತೇನೆ</span></label></div>
+      <div class="chk-row"><input type="checkbox" id="c2"><label for="c2">I consent to the society processing my personal data for membership and financial services as per applicable laws.<span class="kan">ವೈಯಕ್ತಿಕ ಮಾಹಿತಿ ಬಳಕೆಗೆ ಒಪ್ಪಿಗೆ</span></label></div>
+    </div>
+  </div>
+
+</div><!-- /form-body -->
+
+<div class="sbmt-bar">
+  <div class="sbmt-inner">
+    <button class="btn-sub" onclick="submitF()">Submit Application →</button>
+    <div class="sbmt-note">Your data is encrypted and secure. <span class="kan">ನಿಮ್ಮ ಮಾಹಿತಿ ಸುರಕ್ಷಿತ · 2–3 working days for verification</span></div>
+  </div>
+</div>
+</div>
+
+<!-- ====================================================
+     SUCCESS PAGE
+==================================================== -->
+<div id="success-pg">
+  <div class="ok-ring">✓</div>
+  <h2 class="ok-title">Application Submitted!</h2>
+  <p style="font-family:'Noto Sans Kannada',sans-serif;font-size:15px;color:var(--teal);margin-bottom:12px;">ಅರ್ಜಿ ಸ್ವೀಕರಿಸಲಾಗಿದೆ!</p>
+  <p class="ok-sub">Your membership application has been successfully received. Our team will verify your documents and contact you within 2–3 working days.</p>
+  <div class="ref-card">
+    <p>Reference Number</p>
+    <div class="rnum" id="refNum">VS-2026-0000</div>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin-bottom:28px;">Save this reference number for all future correspondence with the society.</p>
+  <button class="btn-ok" onclick="window.location.href='index.html'">← Back to Home</button>
+</div>
+
+<!-- ====================================================
+     JAVASCRIPT
+==================================================== -->
+<script>
+// Progress bar — scoped to this page (no #form-pg prefix needed)
+function upProg(){
+  const fs=document.querySelectorAll('.fi');
+  let f=0;
+  fs.forEach(x=>{if(x.value&&x.value.trim()!='')f++;});
+  const occ=document.getElementById('occv').value?1:0;
+  const pct=Math.min(Math.round(((f+occ)/Math.max(fs.length+1,1))*100),100);
+  document.getElementById('pbar').style.width=pct+'%';
+  document.getElementById('progLabel').textContent=pct+'% complete';
+}
+document.addEventListener('input',()=>upProg());
+
+function selOcc(el,v){
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('occv').value=v;
+  upProg();
+}
+
+function fmtA(el){
+  let v=el.value.replace(/\D/g,'').substring(0,12);
+  el.value=v.replace(/(.{4})/g,' ').trim();
+}
+
+function upFile(inp,dz,fc,fn,fs){
+  const f=inp.files[0];
+  if(!f)return;
+  document.getElementById(dz).classList.add('done');
+  document.getElementById(fn).textContent=f.name;
+  const k=f.size/1024;
+  document.getElementById(fs).textContent=k>1024?(k/1024).toFixed(1)+' MB':Math.round(k)+' KB';
+  document.getElementById(fc).classList.add('show');
+}
+
+function rmFile(dz,fc){
+  document.getElementById(dz).classList.remove('done');
+  document.getElementById(fc).classList.remove('show');
+}
+
+// Signature pad
+let sc,sd=false,slx,sly;
+function initSig(){
+  const c=document.getElementById('sigC');
+  if(c._r)return;
+  c._r=true;
+  const dpr=window.devicePixelRatio||1;
+  c.width=(c.offsetWidth||600)*dpr;
+  c.height=150*dpr;
+  c.style.height='150px';
+  sc=c.getContext('2d');
+  sc.scale(dpr,dpr);
+  sc.strokeStyle='#0A0F1E';
+  sc.lineWidth=2;
+  sc.lineCap='round';
+  sc.lineJoin='round';
+  function gp(e){
+    const r=c.getBoundingClientRect();
+    const s=e.touches?e.touches[0]:e;
+    return{x:s.clientX-r.left,y:s.clientY-r.top};
+  }
+  c.addEventListener('mousedown',e=>{sd=true;const p=gp(e);slx=p.x;sly=p.y;});
+  c.addEventListener('mousemove',e=>{if(!sd)return;const p=gp(e);sc.beginPath();sc.moveTo(slx,sly);sc.lineTo(p.x,p.y);sc.stroke();slx=p.x;sly=p.y;});
+  c.addEventListener('mouseup',()=>sd=false);
+  c.addEventListener('mouseleave',()=>sd=false);
+  c.addEventListener('touchstart',e=>{e.preventDefault();sd=true;const p=gp(e);slx=p.x;sly=p.y;},{passive:false});
+  c.addEventListener('touchmove',e=>{e.preventDefault();if(!sd)return;const p=gp(e);sc.beginPath();sc.moveTo(slx,sly);sc.lineTo(p.x,p.y);sc.stroke();slx=p.x;sly=p.y;},{passive:false});
+  c.addEventListener('touchend',()=>sd=false);
+}
+
+function clrSig(){
+  if(sc){const c=document.getElementById('sigC');sc.clearRect(0,0,c.width,c.height);}
+}
+
+function submitF(){
+  if(!document.getElementById('c1').checked||!document.getElementById('c2').checked){
+    alert('Please check both declaration boxes before submitting.');
+    return;
+  }
+  const ref='VS-'+new Date().getFullYear()+'-'+String(Math.floor(Math.random()*9000)+1000);
+  document.getElementById('refNum').textContent=ref;
+  document.getElementById('form-pg').style.display='none';
+  const s=document.getElementById('success-pg');
+  s.classList.add('show');
+  window.scrollTo(0,0);
+}
+
+// Init signature on load
+window.addEventListener('load',()=>{ initSig(); upProg(); });
+</script>
+</body>
+</html>
