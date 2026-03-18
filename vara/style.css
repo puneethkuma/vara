@@ -89,7 +89,7 @@ nav{
 
 /* ── SERVICES ── */
 .srv-bg{background:var(--white);}
-.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.srv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
 .srv-card{background:var(--off);border-radius:var(--r20);padding:24px;border:1px solid var(--border);transition:all 0.3s;cursor:default;position:relative;overflow:hidden;}
 .srv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--teal2));opacity:0;transition:opacity 0.3s;}
 .srv-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(0,180,166,0.3);}
@@ -98,6 +98,7 @@ nav{
 .ic1{background:linear-gradient(135deg,#FFF9E6,#FFE99E);}
 .ic2{background:linear-gradient(135deg,#E6F9F8,#B2EDE9);}
 .ic3{background:linear-gradient(135deg,#FFE6EE,#FFB8CC);}
+.ic4{background:linear-gradient(135deg,#E6F0FF,#B2CCFF);}
 .srv-card h4{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;letter-spacing:-0.1px;}
 .srv-card p{font-size:13px;color:var(--muted);line-height:1.6;}
 
@@ -328,6 +329,7 @@ select.fi{appearance:none;cursor:pointer;background-image:url("data:image/svg+xm
   .mobile-menu{top:62px;}
   .nav-brand{flex:1;}
   .nav-title{flex:1;text-align:center;}
+  .nav-logo{width:58px;height:58px;}
   .hero{padding:48px 18px 0;}
   .hero h2{font-size:34px;}
   .sec{padding:48px 18px;}
