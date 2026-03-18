@@ -24,10 +24,10 @@ nav{
   box-shadow:0 1px 20px rgba(10,15,30,0.06);
 }
 .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;cursor:pointer;}
-.nav-logo{width:48px;height:48px;border-radius:12px;overflow:hidden;flex-shrink:0;background:var(--white);}
+.nav-logo{width:58px;height:58px;border-radius:12px;overflow:hidden;flex-shrink:0;background:var(--white);}
 .nav-logo img{width:100%;height:100%;object-fit:cover;}
-.nav-title h1{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-0.2px;}
-.nav-title p{font-size:10px;color:var(--muted);letter-spacing:0.2px;font-weight:400;}
+.nav-title h1{font-size:15px;font-weight:700;color:#F59E0B;letter-spacing:-0.2px;}
+.nav-title p{font-size:10px;color:#F59E0B;letter-spacing:0.2px;font-weight:400;}
 .nav-links{display:flex;align-items:center;gap:2px;}
 .nav-link{font-size:13px;font-weight:500;color:var(--muted);padding:8px 14px;border-radius:var(--r10);cursor:pointer;transition:all 0.2s;text-decoration:none;border:none;background:none;font-family:'Outfit',sans-serif;}
 .nav-link:hover{color:var(--ink);background:var(--light);}
@@ -88,19 +88,41 @@ nav{
 .trust-badge .tick{color:var(--green);font-size:13px;}
 
 /* ── SERVICES ── */
-.srv-bg{background:var(--white);}
+.srv-bg{background:linear-gradient(135deg,#F0FFF9 0%,#FFF8E6 50%,#F5F0FF 100%);}
 .srv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-.srv-card{background:var(--off);border-radius:var(--r20);padding:24px;border:1px solid var(--border);transition:all 0.3s;cursor:default;position:relative;overflow:hidden;}
-.srv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--teal2));opacity:0;transition:opacity 0.3s;}
-.srv-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(0,180,166,0.3);}
-.srv-card:hover::before{opacity:1;}
-.srv-ico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px;}
-.ic1{background:linear-gradient(135deg,#FFF9E6,#FFE99E);}
-.ic2{background:linear-gradient(135deg,#E6F9F8,#B2EDE9);}
-.ic3{background:linear-gradient(135deg,#FFE6EE,#FFB8CC);}
-.ic4{background:linear-gradient(135deg,#E6F0FF,#B2CCFF);}
-.srv-card h4{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;letter-spacing:-0.1px;}
-.srv-card p{font-size:13px;color:var(--muted);line-height:1.6;}
+.srv-card{border-radius:var(--r20);padding:24px;border:2px solid transparent;transition:all 0.3s;cursor:default;position:relative;overflow:hidden;}
+.srv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;transition:height 0.3s;}
+.srv-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(10,15,30,0.15);}
+.srv-card:hover::before{height:7px;}
+.srv-ico{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:16px;}
+
+/* Card 1 – Credits – Amber/Gold */
+.srv-card.c1{background:linear-gradient(145deg,#FFFBEB,#FEF3C7);border-color:#F59E0B;}
+.srv-card.c1::before{background:linear-gradient(90deg,#F59E0B,#FCD34D);}
+.srv-card.c1 h4{color:#92400E;}
+.srv-card.c1 p{color:#78350F;}
+.ic1{background:linear-gradient(135deg,#F59E0B,#FCD34D);}
+
+/* Card 2 – Housing – Teal/Green */
+.srv-card.c2{background:linear-gradient(145deg,#ECFDF5,#D1FAE5);border-color:#10B981;}
+.srv-card.c2::before{background:linear-gradient(90deg,#059669,#34D399);}
+.srv-card.c2 h4{color:#065F46;}
+.srv-card.c2 p{color:#064E3B;}
+.ic2{background:linear-gradient(135deg,#10B981,#34D399);}
+
+/* Card 3 – Chits – Rose/Pink */
+.srv-card.c3{background:linear-gradient(145deg,#FFF1F2,#FFE4E6);border-color:#F43F5E;}
+.srv-card.c3::before{background:linear-gradient(90deg,#E11D48,#FB7185);}
+.srv-card.c3 h4{color:#9F1239;}
+.srv-card.c3 p{color:#881337;}
+.ic3{background:linear-gradient(135deg,#F43F5E,#FB7185);}
+
+/* Card 4 – Fixed Deposits – Blue/Indigo */
+.srv-card.c4{background:linear-gradient(145deg,#EEF2FF,#E0E7FF);border-color:#6366F1;}
+.srv-card.c4::before{background:linear-gradient(90deg,#4F46E5,#818CF8);}
+.srv-card.c4 h4{color:#3730A3;}
+.srv-card.c4 p{color:#312E81;}
+.ic4{background:linear-gradient(135deg,#6366F1,#818CF8);}
 
 /* ── LOAN CALCULATOR ── */
 .calc-sec{background:var(--white);padding:56px 40px;}
@@ -329,7 +351,7 @@ select.fi{appearance:none;cursor:pointer;background-image:url("data:image/svg+xm
   .mobile-menu{top:62px;}
   .nav-brand{flex:1;}
   .nav-title{flex:1;text-align:center;}
-  .nav-logo{width:58px;height:58px;}
+  .nav-logo{width:56px;height:56px;}
   .hero{padding:48px 18px 0;}
   .hero h2{font-size:34px;}
   .sec{padding:48px 18px;}
@@ -339,14 +361,12 @@ select.fi{appearance:none;cursor:pointer;background-image:url("data:image/svg+xm
   .cta-wrap{padding:0 18px 48px;}
   .big-cta{padding:36px 22px;border-radius:var(--r20);}
   .big-cta h3{font-size:26px;}
-  /* FOOTER */
   .footer-main{grid-template-columns:1fr 1fr;gap:20px;padding:28px 18px 20px;}
   .footer-brand{grid-column:1/-1;}
   .fnames h4{font-size:13px;}
   .footer-bottom-inner{padding:12px 18px;flex-direction:column;align-items:flex-start;gap:8px;}
   .footer-bottom-links{gap:10px;flex-wrap:wrap;}
   .copy,.regn{font-size:10px;}
-  /* FORM */
   .form-nav{padding:0 16px;gap:10px;height:58px;}
   .form-nav-txt h2{font-size:13px;}
   .form-nav-txt p{display:none;}
